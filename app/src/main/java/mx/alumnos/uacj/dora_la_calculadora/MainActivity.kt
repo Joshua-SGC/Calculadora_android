@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import mx.alumnos.uacj.dora_la_calculadora.ui.theme.Dora_la_calculadoraTheme
@@ -40,66 +41,79 @@ fun Calculadora() {
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center) {
         Text(text = "Aqui van numeritos", modifier = Modifier
+            .padding(10.dp)
             .fillMaxWidth()
             .background(Color.Blue)
             .height(50.dp),
-            textAlign =
+            textAlign = TextAlign.Right,
+        )
 
-        //Deberia jugar mas con el estilo de aui
-        Column (modifier = Modifier.fillMaxSize().background(Color.DarkGray)){
-
-            Row(horizontalArrangement = Arrangement.SpaceAround,
-                modifier = Modifier.fillMaxSize()){
+        Column(modifier = Modifier.fillMaxSize().background(Color.DarkGray)) {
+            Row(
+                horizontalArrangement = Arrangement.SpaceAround,
+                modifier = Modifier.fillMaxWidth()
+            ) {
                 Boton("9")
-                Boton("6")
-                Boton("3")
-            }
-
-            Row(horizontalArrangement = Arrangement.SpaceAround,
-                modifier = Modifier.fillMaxSize()){
                 Boton("8")
-                Boton("5")
-                Boton("2")
+                Boton("7")
             }
 
-            Row(horizontalArrangement = Arrangement.SpaceAround,
-                modifier = Modifier.fillMaxSize()){
-                Boton("7")
+            Row(
+                horizontalArrangement = Arrangement.SpaceAround,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Boton("6")
+                Boton("5")
                 Boton("4")
+            }
+            Row(
+                horizontalArrangement = Arrangement.SpaceAround,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Boton("3")
+                Boton("2")
                 Boton("1")
             }
-
-            Row(horizontalArrangement = Arrangement.SpaceAround,
-                modifier = Modifier.fillMaxSize()){
+            Row(
+                horizontalArrangement = Arrangement.SpaceAround,
+                modifier = Modifier.fillMaxWidth()
+            ) {
                 Boton(".")
                 Boton("0")
                 Boton("op")
             }
+
+
         }
-
-
     }
-
 }
- @Composable
- fun Boton(etiqueta: String){
-     Text(
-         etiqueta, modifier = Modifier.background(Color.Green)
-             .padding(25.dp)
-             .background(Color.Green)
-             .height(50.dp)
-             .width(50.dp)
-         textAlign = TextAlign.Center,
-         //fontSize =
-     )
 
- }
+@Composable
+fun Boton(etiqueta: String) {
+    Text(
+        etiqueta, modifier = Modifier
 
+            .padding(25.dp)
+            .background(Color.Green)
+            .height(50.dp)
+            .width(50.dp),
+        textAlign = TextAlign.Center,
+    )
+}
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     Dora_la_calculadoraTheme {
         Calculadora()
+    }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun mostrar_boton() {
+    Dora_la_calculadoraTheme {
+        Boton("nosequeera")
     }
 }
